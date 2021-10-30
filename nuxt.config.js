@@ -1,3 +1,4 @@
+require('dotenv').config()
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -25,6 +26,12 @@ export default {
     ]
   },
 
+  generate: {
+    routes: [
+      '/'
+    ]
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/main.scss'
@@ -32,22 +39,32 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~/plugins/vform.js',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
-
+  components: [
+    // Equivalent to { path: '~/components' }
+    '~/components',
+  ],
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    // Simple usage
+    '@nuxtjs/router',
+    '@nuxt/components',
+    // With options
+    ['@nuxtjs/router', { /* module options */ }]
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/auth-next',
     '@nuxtjs/dotenv',
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -57,5 +74,29 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    // You can extend webpack config here
+    transpile: ['vform'],
+  },
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'data.token',
+          global: true,
+          required: true,
+          type: 'Bearer'
+        },
+        user: {
+          property: 'data',
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: '/login', method: 'post'},
+          logout: { url: '/logout', method: 'post' },
+          user: { url: '/me', method: 'get' }
+        }
+      }
+    }
   }
+
 }
