@@ -22,12 +22,7 @@
         </div>
 
         <div class="text-right">
-          <button type="submit" :disabled="form.busy" class="btn btn-primary primary-bg-color font-16 fw-500 text-uppercase">
-            Resend
-            <span v-if="form.busy">
-              <i class="fas fa-spinner fa-spin"></i>
-            </span>
-          </button>
+          <BaseButton :isBusy="form.busy">Resend</BaseButton>
         </div>
       </form>
     </div>
@@ -37,6 +32,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   name: "resend",
   data(){
     return {

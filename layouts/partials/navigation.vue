@@ -45,12 +45,12 @@
             </div>
           </form>
         </div>
-        <div
+        <div v-if="$auth.loggedIn"
           class="upload-shot white-path font-14 fw-500 text-uppercase mr-auto"
         >
-          <a href="#" class="primary-bg-color text-white">
+          <nuxt-link :to="{name: 'user.design.upload'}" class="primary-bg-color text-white">
             <i class="fas fa-cloud-upload-alt"></i> Upload
-          </a>
+          </nuxt-link>
         </div>
       </div>
 

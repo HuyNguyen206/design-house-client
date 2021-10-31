@@ -60,18 +60,12 @@
         </div>
 
         <div class="text-right">
-          <button :disabled="form.busy" type="submit" class="btn btn-primary primary-bg-color font-16 fw-500 text-uppercase">
-            Register
-            <span  v-if="form.busy">
-              <i class="fas fa-spinner fa-spin"></i>
-            </span>
-          </button>
+          <BaseButton :isBusy="form.busy">Register</BaseButton>
         </div>
         <p class="font-14 fw-400 text-center mt-4">
           Already have an account?
           <nuxt-link class="color-blue" :to="{name:  'login'}"> Login</nuxt-link>
         </p>
-        <BaseList></BaseList>
       </form>
     </div>
   </section>
@@ -79,6 +73,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   name: "register",
   data() {
     return {

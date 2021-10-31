@@ -35,19 +35,13 @@
           <nuxt-link :to="{name: 'password.email'}" class="forgot-pass color-blue font-14 fw-400" href="#"> Forgot password? </nuxt-link>
         </div>
         <div class="text-right">
-          <button :disabled="this.isBusy" type="submit" class="btn btn-primary primary-bg-color font-16 fw-500 text-uppercase">
-            Login
-            <span  v-if="this.isBusy">
-              <i class="fas fa-spinner fa-spin"></i>
-            </span>
-          </button>
+          <BaseButton :isBusy="this.isBusy">Login</BaseButton>
         </div>
         <p class="font-14 fw-400 text-center mt-4">
           Don't have an account yet?
           <nuxt-link class="color-blue" :to="{name: 'register'}"> Create an account</nuxt-link>
         </p>
-      <BaseButton></BaseButton>
-        <BaseList></BaseList>
+
       </form>
     </div>
   </section>
@@ -55,6 +49,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   name: "login",
   data(){
     return {

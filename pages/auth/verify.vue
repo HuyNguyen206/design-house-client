@@ -22,6 +22,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   name: "verify",
   async asyncData({route, app}) {
     try {

@@ -7,13 +7,16 @@ import verify from "~/pages/auth/verify";
 import resend from "~/pages/auth/resend-verify-email";
 import reset from "~/pages/password/reset-password";
 import resetEmail from "~/pages/password/reset-email-password";
+import dashbard from "~/pages/user/dashboard";
+import create from "~/pages/user/designs/create";
+import edit from "~/pages/user/designs/edit";
 
 Vue.use(Router)
 const routes = [
   {
     path:'/',
     name:'index',
-    component:index
+    component:dashbard
   },
   {
     path:'/login',
@@ -44,6 +47,16 @@ const routes = [
     path:'/password/email/reset-pass',
     name:'password.email',
     component:resetEmail
+  },
+  {
+    path:'/user/designs/upload',
+    name:'user.design.upload',
+    component:create
+  },
+  {
+    path:'/user/designs/edit/:id',
+    name:'user.design.edit',
+    component:edit
   }
 ];
 

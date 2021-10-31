@@ -43,12 +43,7 @@
         </div>
 
         <div class="text-right">
-          <button :disabled="form.busy" type="submit" class="btn btn-primary primary-bg-color font-16 fw-500 text-uppercase">
-            Reset Password
-            <span  v-if="form.busy">
-              <i class="fas fa-spinner fa-spin"></i>
-            </span>
-          </button>
+          <BaseButton :isBusy="form.busy">   Reset Password</BaseButton>
         </div>
       </form>
     </div>
@@ -58,6 +53,8 @@
 
 <script>
 export default {
+  middleware: 'auth',
+  auth: 'guest',
   name: "reset",
   data(){
     return {
