@@ -18,10 +18,10 @@ export default {
     script: [
       // { src: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'},
       // { src: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js'},
-      {src: 'js/jquery-3.3.1.min.js'},
-      {src: 'lib/bootstrap/js/bootstrap.bundle.min.js'},
-      {src: 'lib/slick/js/slick.min.js'},
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js'}
+      {src: '/js/jquery-3.3.1.min.js', body: true},
+      {src: '/lib/bootstrap/js/bootstrap.bundle.min.js', body: true},
+      {src: '/lib/slick/js/slick.min.js', body: true},
+      {src: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js'}
 
     ]
   },

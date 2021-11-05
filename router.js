@@ -7,16 +7,19 @@ import verify from "~/pages/auth/verify";
 import resend from "~/pages/auth/resend-verify-email";
 import reset from "~/pages/password/reset-password";
 import resetEmail from "~/pages/password/reset-email-password";
-import dashbard from "~/pages/user/dashboard";
 import create from "~/pages/user/designs/create";
 import edit from "~/pages/user/designs/edit";
+import profile from "~/pages/user/setting/profile";
+import IndexDashboard from "~/pages/user/setting/index";
+import password from "~/pages/user/setting/password";
+import design from "~/pages/user/setting/design";
 
 Vue.use(Router)
 const routes = [
   {
     path:'/',
-    name:'index',
-    component:dashbard
+    name:'home',
+    component:index
   },
   {
     path:'/login',
@@ -57,6 +60,28 @@ const routes = [
     path:'/user/designs/edit/:id',
     name:'user.design.edit',
     component:edit
+  },
+  {
+    path:'/settings',
+    name:'setting',
+    component:IndexDashboard,
+    children:[
+      {
+        path: 'profile',
+        name: 'setting.profile',
+        component: profile
+      },
+      {
+        path: 'password',
+        name: 'setting.password',
+        component: password
+      },
+      {
+        path: 'design',
+        name: 'setting.designs',
+        component: design
+      }
+    ]
   }
 ];
 

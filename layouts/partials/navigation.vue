@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark align-items-center">
       <nuxt-link
         class="navbar-brand text-uppercase fw-500"
-        :to="{name :'index'}"
+        :to="{name :'home'}"
         title="Project Name"
       >DesignHouse</nuxt-link
       >
@@ -112,10 +112,11 @@
               <i class="fa fa-user"></i>
               Profile
             </a>
-            <a class="dropdown-item" href="#" title="Setting">
+            <nuxt-link class="dropdown-item" :to="{name :'setting'}" title="Setting">
               <i class="fa fa-cogs"></i>
               Setting
-            </a>
+            </nuxt-link>
+
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" @click.prevent="logout" title="Sign Out">
               <i class="fa fa-lock"></i>
