@@ -13,6 +13,8 @@ import profile from "~/pages/user/setting/profile";
 import IndexDashboard from "~/pages/user/setting/index";
 import password from "~/pages/user/setting/password";
 import design from "~/pages/user/setting/design";
+import Search from "~/pages/user/designs/Search";
+import detail from "~/pages/user/designs/detail";
 
 Vue.use(Router)
 const routes = [
@@ -82,7 +84,18 @@ const routes = [
         component: design
       }
     ]
+  },
+  {
+    path:'/designs',
+    name:'designs.search',
+    component:Search
+  },
+  {
+    path:'/designs/:slug',
+    name:'designs.detail',
+    component:detail
   }
+
 ];
 
 export function createRouter() {

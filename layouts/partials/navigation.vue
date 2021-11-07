@@ -21,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbar">
         <ul class="navbar-nav font-14 fw-300">
           <li class="nav-item active">
-            <a class="nav-link" href="#" title="Shots">Designs</a>
+            <nuxt-link class="nav-link" :to="{name: 'designs.search'}" title="Shots">Designs</nuxt-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" title="Designers"
