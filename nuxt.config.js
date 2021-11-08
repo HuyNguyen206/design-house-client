@@ -46,7 +46,12 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     // Equivalent to { path: '~/components' }
-    '~/components',
+    // '~/components',
+    {
+      path:  '~/components/base/',
+      extensions: ['vue'], // Array, include files that match the extension
+      prefix: 'Base'
+    }
   ],
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
