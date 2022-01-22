@@ -86,7 +86,7 @@
                 <!-- End Designer info -->
                 <!-- Designer Design Info -->
                 <ul class="details-side-meta font-14 fw-400">
-                  <li class="d-table w-100">
+                  <li class="d-table w-100" v-if="$auth.loggedIn">
                     <DesignLike :design="design" @toggle-like="handleToggleLike"></DesignLike>
 <!--                    <div class="stats-txt d-table-cell w-50">-->
 <!--                      <p class="alert alert-danger" v-if="errorMessage">{{errorMessage}}</p>-->
@@ -174,7 +174,7 @@ export default {
       this.form.post(`/comments`)
         .then(res => {
           this.design.comments.push(res.data.data)
-          this.form.reset()
+          this.form.comment = ''
         })
     },
     handleToggleLike(design){
